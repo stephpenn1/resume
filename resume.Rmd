@@ -1,0 +1,60 @@
+---
+output:
+  html_document:
+    css: styles.css
+    theme: null
+    linespacing: single
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(kableExtra)
+# Read in tables with content
+education <- read.csv("education.csv")
+experience <- read.csv("experience.csv")
+skills <- read.csv("skills.csv")
+teaching <- read.csv("teaching.csv")
+# Function to style my tables
+maketable <- function(x) { 
+  x %>% 
+  kable(col.names = c("","")) %>% 
+  column_spec(1, bold = T, width="10em", extra_css = "vertical-align:text-top;") %>%
+  column_spec(2, bold = F, width="50em", extra_css = "vertical-align:text-top;") 
+}
+```
+
+# Stephanie Pennington
+#### stephanie.pennington@pnnl.gov 
+#### (301) 606-3322
+
+
+## Education
+***
+```{r, echo=FALSE}
+maketable(education)
+```
+
+## Experience
+***
+```{r, echo=FALSE}
+maketable(experience)
+```
+
+## Skills
+***
+```{r, echo=FALSE}
+kable(skills, col.names = "")
+```
+
+## Mentorship and Teaching
+***
+```{r, echo=FALSE}
+kable(teaching, col.names = "")
+```
+
+\
+<center>
+References and full academic CV available upon request
+\
+*This resume was made in RMarkdown*
+</center>
